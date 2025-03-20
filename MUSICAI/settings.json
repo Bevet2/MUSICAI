@@ -1,0 +1,9 @@
+{
+    "windsurf.autocompleteSpeed": "default",
+    "windsurf.chatFontSize": "default",
+    "windsurf.rememberLastModelSelection": false,
+    "windsurf.openRecentConversation": false,
+    "windsurf.enableTabToJump": true,
+    "windsurf.explainAndFixInCurrentConversation": false,
+    "windsurf.autoExecutionPolicy": "off"
+}

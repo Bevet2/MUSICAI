@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Remix Studio</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="logo">
+                <span>🎵 AI Remix Studio</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-page="remix">Remix Song</button>
+                <button class="nav-btn" data-page="create">Create New</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Remix Page -->
+            <div class="page active" id="remixPage">
+                <h1>Transform Your Music</h1>
+                <p class="subtitle">Give your favorite tracks a fresh new sound with our AI-powered remix generator.</p>
+
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search for a song on YouTube...">
+                </div>
+
+                <div id="searchResults" class="search-results"></div>
+
+                <div class="genre-buttons" id="genreButtons">
+                    <button class="genre-btn" data-genre="Rock">
+                        <span class="genre-icon">🎸</span>
+                        Rock
+                    </button>
+                    <button class="genre-btn" data-genre="Electro">
+                        <span class="genre-icon">🎧</span>
+                        Electro
+                    </button>
+                    <button class="genre-btn" data-genre="Jazz">
+                        <span class="genre-icon">🎷</span>
+                        Jazz
+                    </button>
+                    <button class="genre-btn" data-genre="Hip-Hop">
+                        <span class="genre-icon">🎤</span>
+                        Hip-Hop
+                    </button>
+                    <button class="genre-btn" data-genre="Lo-Fi">
+                        <span class="genre-icon">🌙</span>
+                        Lo-Fi
+                    </button>
+                </div>
+
+                <button id="remixButton" class="action-button" disabled>
+                    <span>✨</span>
+                    Generate Remix
+                </button>
+
+                <div class="result-section" id="remixResultSection">
+                    <div class="waveform-container">
+                        <div id="remixWaveform"></div>
+                        <div class="player-controls">
+                            <button class="control-button play-button">▶️</button>
+                            <button class="control-button download-button">⬇️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Page -->
+            <div class="page" id="createPage">
+                <h1>Create New Music</h1>
+                <p class="subtitle">Upload tracks, add lyrics, and let our AI create something unique!</p>
+
+                <div class="upload-section">
+                    <div class="upload-container" id="uploadContainer">
+                        <input type="file" id="fileInput" multiple accept="audio/*" class="file-input">
+                        <div class="upload-content">
+                            <span class="upload-icon">📁</span>
+                            <span>Drag & drop audio files or click to upload</span>
+                        </div>
+                    </div>
+                    <div id="uploadedFiles" class="uploaded-files"></div>
+                </div>
+
+                <div class="mix-controls">
+                    <div class="mix-sliders" id="mixSliders">
+                        <!-- Mix ratio sliders will be added dynamically -->
+                    </div>
+                </div>
+
+                <div class="lyrics-section">
+                    <h3>Add Lyrics</h3>
+                    <textarea id="lyricsInput" placeholder="Enter your lyrics here..."></textarea>
+                    
+                    <div class="voice-selection">
+                        <label for="voiceSelect">Choose a voice:</label>
+                        <select id="voiceSelect">
+                            <option value="male_1">Male Voice 1</option>
+                            <option value="male_2">Male Voice 2</option>
+                            <option value="female_1">Female Voice 1</option>
+                            <option value="female_2">Female Voice 2</option>
+                            <option value="gtts">Google TTS</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="createButton" class="action-button" disabled>
+                    <span>🎼</span>
+                    Create Track
+                </button>
+
+                <div class="result-section" id="createResultSection">
+                    <div class="waveform-container">
+                        <div id="createWaveform"></div>
+                        <div class="player-controls">
+                            <button class="control-button play-button">▶️</button>
+                            <button class="control-button download-button">⬇️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Creating your track...</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
